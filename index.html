@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCI Field Filming Guide</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.10.0/dist/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f5f3;
+    --bg3: #efefec;
+    --text: #1a1a18;
+    --text2: #5f5e5a;
+    --text3: #888780;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.2);
+    --warning: #ba7517;
+    --info: #185fa5;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a;
+      --bg2: #252523;
+      --bg3: #2e2e2b;
+      --text: #e8e6df;
+      --text2: #9c9a92;
+      --text3: #6e6c66;
+      --border: rgba(255,255,255,0.1);
+      --border2: rgba(255,255,255,0.18);
+      --warning: #ef9f27;
+      --info: #85b7eb;
+    }
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+  }
+
+  .guide {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 2rem 0 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  .hero-icon {
+    font-size: 36px;
+    color: var(--text2);
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+  .hero p {
+    font-size: 15px;
+    color: var(--text2);
+  }
+
+  /* Section */
+  .section { margin-bottom: 2.5rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .section-header i { font-size: 20px; color: var(--text2); }
+  .section-header h2 { font-size: 17px; font-weight: 500; color: var(--text); }
+
+  /* Settings */
+  .settings-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  .settings-label:first-child { margin-top: 0; }
+
+  .setting-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .setting-row:last-child { border-bottom: none; }
+  .setting-row > i { font-size: 18px; color: var(--text2); flex-shrink: 0; margin-top: 2px; }
+  .setting-text { font-size: 14px; color: var(--text); }
+  .setting-text strong { font-weight: 500; }
+  .setting-path {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 3px;
+    font-family: monospace;
+  }
+
+  .tip-box {
+    background: var(--bg2);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tip-box > i { font-size: 18px; color: var(--warning); flex-shrink: 0; margin-top: 1px; }
+  .tip-box p { font-size: 13px; color: var(--text2); line-height: 1.55; }
+  .tip-box p strong { color: var(--text); font-weight: 500; }
+
+  /* Shot grid */
+  .shot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .shot-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+  }
+  .shot-num {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text3);
+    margin-bottom: 6px;
+  }
+  .shot-diagram { width: 100%; height: 72px; margin-bottom: 8px; }
+  .shot-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+  .shot-desc { font-size: 12px; color: var(--text2); line-height: 1.4; }
+
+  /* Orientation */
+  .orientation-diagram { width: 100%; margin: 0.75rem 0; }
+
+  /* Tips rows */
+  .tip-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .tip-row:last-child { border-bottom: none; }
+  .tip-row > i { font-size: 20px; color: var(--text2); flex-shrink: 0; margin-top: 1px; }
+  .tip-row-text { font-size: 14px; color: var(--text); line-height: 1.55; }
+  .tip-row-text strong { font-weight: 500; }
+
+  /* Reminder grid */
+  .reminder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .reminder-card {
+    background: var(--bg2);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .reminder-card > i { font-size: 22px; color: var(--text2); }
+  .reminder-card p { font-size: 13px; color: var(--text); line-height: 1.45; }
+  .reminder-card p strong { font-weight: 500; }
+
+  /* More info / links */
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    text-decoration: none;
+    color: var(--text);
+    margin-bottom: 10px;
+    transition: background 0.15s;
+  }
+  .link-card:hover { background: var(--bg2); }
+  .link-card:last-child { margin-bottom: 0; }
+  .link-thumb {
+    width: 48px;
+    height: 36px;
+    background: #ff0000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .link-thumb i { font-size: 20px; color: #ffffff; }
+  .link-info { flex: 1; min-width: 0; }
+  .link-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; line-height: 1.4; }
+  .link-url { font-size: 11px; color: var(--text3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .link-arrow { font-size: 16px; color: var(--text3); flex-shrink: 0; }
+
+  /* SVG dynamic colors */
+  .svg-stroke { stroke: var(--border2); }
+  .svg-fill { fill: var(--bg2); }
+  .svg-fill-strong { fill: var(--bg3); }
+  .svg-text { fill: var(--text3); }
+  .svg-accent { fill: var(--warning); stroke: var(--warning); }
+  .svg-info { stroke: var(--info); }
+</style>
+</head>
+<body>
+<div class="guide">
+
+  <div class="hero">
+    <div class="hero-icon"><i class="ti ti-camera"></i></div>
+    <h1>Field filming guide</h1>
+    <p>Phone photography &amp; video for ACCI field trips</p>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-adjustments-horizontal"></i>
+      <h2>iPhone settings</h2>
+    </div>
+
+    <div class="settings-label">Photos</div>
+    <div class="setting-row">
+      <i class="ti ti-file-description"></i>
+      <div class="setting-text">
+        <strong>ProRAW on</strong>
+        <div class="setting-path">Settings → Camera → Formats → ProRAW</div>
+      </div>
+    </div>
+    <div class="setting-row">
+      <i class="ti ti-sun"></i>
+      <div class="setting-text">
+        <strong>Exposure –1</strong>
+        <div class="setting-path">Tap screen in Camera app → slide sun icon down</div>
+      </div>
+    </div>
+
+    <div class="settings-label">Video</div>
+    <div class="setting-row">
+      <i class="ti ti-device-tv"></i>
+      <div class="setting-text">
+        <strong>4K resolution</strong>
+        <div class="setting-path">Settings → Camera → Record Video → 4K</div>
+      </div>
+    </div>
+    <div class="setting-row">
+      <i class="ti ti-adjustments"></i>
+      <div class="setting-text">
+        <strong>24fps</strong> for cinematic &nbsp;·&nbsp; <strong>30fps</strong> for natural feel
+        <div class="setting-path">Settings → Camera → Record Video</div>
+      </div>
+    </div>
+    <div class="setting-row">
+      <i class="ti ti-sun"></i>
+      <div class="setting-text">
+        <strong>Exposure –1</strong>
+        <div class="setting-path">Tap screen → slide sun icon down</div>
+      </div>
+    </div>
+    <div class="setting-row">
+      <i class="ti ti-zoom-cancel"></i>
+      <div class="setting-text">
+        <strong>No digital zoom</strong> — move closer, or tap 2× / 3× lens button
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <i class="ti ti-alert-triangle"></i>
+      <p><strong>Important:</strong> go to Settings → Camera → Preserve Settings and turn everything on. This stops the camera resetting your exposure every time you close the app.</p>
+    </div>
+  </div>
+
+  <!-- SHOT LIST -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-list-check"></i>
+      <h2>The 8-shot checklist</h2>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:1rem;line-height:1.5;">Work through these in every new environment. Get both vertical and horizontal for each.</p>
+
+    <div class="shot-grid">
+
+      <div class="shot-card">
+        <div class="shot-num">01</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <rect x="55" y="25" width="14" height="20" rx="2" fill="var(--border2)"/>
+          <ellipse cx="62" cy="22" rx="5" ry="5" fill="var(--border2)"/>
+          <rect x="15" y="35" width="25" height="20" rx="2" fill="var(--border)" />
+          <rect x="100" y="30" width="20" height="25" rx="2" fill="var(--border)"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">full scene</text>
+        </svg>
+        <div class="shot-name">Wide</div>
+        <div class="shot-desc">Establish the place. Where are we?</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">02</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <ellipse cx="70" cy="20" rx="9" ry="9" fill="var(--border2)"/>
+          <rect x="58" y="30" width="24" height="28" rx="3" fill="var(--border2)"/>
+          <line x1="5" y1="48" x2="135" y2="48" stroke="var(--warning)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">waist up</text>
+        </svg>
+        <div class="shot-name">Medium</div>
+        <div class="shot-desc">Waist up, person in their environment</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">03</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <ellipse cx="70" cy="32" rx="22" ry="24" fill="var(--border2)"/>
+          <ellipse cx="62" cy="28" rx="3" ry="3.5" fill="var(--bg)"/>
+          <ellipse cx="78" cy="28" rx="3" ry="3.5" fill="var(--bg)"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">fill the frame</text>
+        </svg>
+        <div class="shot-name">Close-up: face</div>
+        <div class="shot-desc">Fill the frame. Eyes matter most.</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">04</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <rect x="38" y="22" width="64" height="28" rx="8" fill="var(--border2)"/>
+          <rect x="50" y="14" width="8" height="18" rx="4" fill="var(--border2)"/>
+          <rect x="62" y="12" width="8" height="18" rx="4" fill="var(--border2)"/>
+          <rect x="74" y="14" width="8" height="18" rx="4" fill="var(--border2)"/>
+          <rect x="86" y="16" width="8" height="16" rx="4" fill="var(--border2)"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">detail &amp; texture</text>
+        </svg>
+        <div class="shot-name">Close-up: detail</div>
+        <div class="shot-desc">Hands, objects, something being made</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">05</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <rect x="8" y="35" width="30" height="25" rx="3" fill="var(--border)"/>
+          <ellipse cx="23" cy="30" rx="8" ry="8" fill="var(--border)"/>
+          <ellipse cx="88" cy="28" rx="14" ry="14" fill="var(--border2)"/>
+          <ellipse cx="82" cy="24" rx="3" ry="3" fill="var(--bg)"/>
+          <ellipse cx="94" cy="24" rx="3" ry="3" fill="var(--bg)"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">show their view</text>
+        </svg>
+        <div class="shot-name">Over-the-shoulder</div>
+        <div class="shot-desc">Behind someone, showing what they see</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">06</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <ellipse cx="70" cy="15" rx="10" ry="10" fill="var(--border2)"/>
+          <rect x="60" y="26" width="20" height="35" rx="3" fill="var(--border2)"/>
+          <line x1="70" y1="58" x2="30" y2="64" stroke="var(--warning)" stroke-width="1.5" stroke-dasharray="2,2"/>
+          <circle cx="28" cy="65" r="3" fill="var(--warning)"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">camera low, pointing up</text>
+        </svg>
+        <div class="shot-name">Low angle</div>
+        <div class="shot-desc">Get down low, shoot up</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">07</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <rect x="10" y="10" width="120" height="30" rx="2" fill="var(--border)" opacity="0.5"/>
+          <rect x="10" y="40" width="120" height="20" rx="2" fill="var(--border)" opacity="0.25"/>
+          <rect x="65" y="34" width="6" height="14" rx="1" fill="var(--border2)"/>
+          <ellipse cx="68" cy="31" rx="4" ry="4" fill="var(--border2)"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">scale &amp; context</text>
+        </svg>
+        <div class="shot-name">Person in big space</div>
+        <div class="shot-desc">Shows scale and context</div>
+      </div>
+
+      <div class="shot-card">
+        <div class="shot-num">08</div>
+        <svg class="shot-diagram" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="130" height="60" rx="4" fill="none" stroke="var(--border2)" stroke-width="1"/>
+          <ellipse cx="70" cy="37" rx="28" ry="20" fill="none" stroke="var(--border)" stroke-width="1" stroke-dasharray="3,2"/>
+          <ellipse cx="70" cy="28" rx="10" ry="10" fill="var(--border2)" opacity="0.5"/>
+          <rect x="62" y="36" width="16" height="20" rx="2" fill="var(--border2)" opacity="0.5"/>
+          <path d="M42 57 Q70 20 98 57" fill="none" stroke="var(--info)" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="70" y="67" text-anchor="middle" font-size="9" fill="var(--text3)" font-family="sans-serif">reflection, shadow, angle</text>
+        </svg>
+        <div class="shot-name">Something unexpected</div>
+        <div class="shot-desc">Reflection, shadow, or angle that caught your eye</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ORIENTATION -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-device-mobile-rotated"></i>
+      <h2>Shoot vertical AND horizontal</h2>
+    </div>
+    <p style="font-size:14px;color:var(--text);line-height:1.6;margin-bottom:0.75rem;">Every shot, both orientations. It takes five extra seconds and doubles what you come home with.</p>
+    <svg class="orientation-diagram" viewBox="0 0 340 115" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="140" height="90" rx="8" fill="none" stroke="var(--border2)" stroke-width="1.5"/>
+      <rect x="15" y="15" width="130" height="80" rx="4" fill="var(--bg2)"/>
+      <text x="80" y="105" text-anchor="middle" font-size="11" fill="var(--text2)" font-family="sans-serif">Horizontal</text>
+      <text x="80" y="60" text-anchor="middle" font-size="10" fill="var(--text2)" font-family="sans-serif">YouTube · newsletters</text>
+      <text x="80" y="76" text-anchor="middle" font-size="10" fill="var(--text2)" font-family="sans-serif">websites · presentations</text>
+      <rect x="210" y="5" width="60" height="100" rx="8" fill="none" stroke="var(--border2)" stroke-width="1.5"/>
+      <rect x="215" y="10" width="50" height="90" rx="4" fill="var(--bg2)"/>
+      <text x="240" y="115" text-anchor="middle" font-size="11" fill="var(--text2)" font-family="sans-serif">Vertical</text>
+      <text x="295" y="42" text-anchor="start" font-size="10" fill="var(--text2)" font-family="sans-serif">Reels</text>
+      <text x="295" y="57" text-anchor="start" font-size="10" fill="var(--text2)" font-family="sans-serif">Stories</text>
+      <line x1="272" y1="40" x2="292" y2="40" stroke="var(--border2)" stroke-width="0.5" stroke-dasharray="2,2"/>
+      <line x1="272" y1="55" x2="292" y2="55" stroke="var(--border2)" stroke-width="0.5" stroke-dasharray="2,2"/>
+    </svg>
+  </div>
+
+  <!-- KEEP IT STILL -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-hand-stop"></i>
+      <h2>Keep it still</h2>
+    </div>
+    <div class="tip-row">
+      <i class="ti ti-body-scan"></i>
+      <div class="tip-row-text">Press your elbows into your body to brace your arms</div>
+    </div>
+    <div class="tip-row">
+      <i class="ti ti-wall"></i>
+      <div class="tip-row-text">Lean against a wall or post if one is nearby</div>
+    </div>
+    <div class="tip-row">
+      <i class="ti ti-arrows-minimize"></i>
+      <div class="tip-row-text">If panning, move as slowly as you possibly can — then slower</div>
+    </div>
+    <div class="tip-row">
+      <i class="ti ti-clock"></i>
+      <div class="tip-row-text">For video, <strong>hold each clip for at least 10 seconds</strong> before stopping. Short clips can't be edited.</div>
+    </div>
+    <div class="tip-row">
+      <i class="ti ti-repeat"></i>
+      <div class="tip-row-text">Film the same moment a few ways — wide, then medium, then close-up. Those three clips together tell a story.</div>
+    </div>
+  </div>
+
+  <!-- SHOOT MORE -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-photo-plus"></i>
+      <h2>Shoot more than you need</h2>
+    </div>
+    <p style="font-size:14px;color:var(--text);line-height:1.6;margin-bottom:0.75rem;">Expect only one or two in ten shots to be truly usable. That's completely normal — it's not failure, it's just how this works.</p>
+    <p style="font-size:14px;color:var(--text);line-height:1.6;">Be generous. Cover the scene from multiple angles, distances, and orientations. Give the editor options.</p>
+  </div>
+
+  <!-- QUICK REMINDERS -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-checklist"></i>
+      <h2>Quick reminders</h2>
+    </div>
+    <div class="reminder-grid">
+      <div class="reminder-card">
+        <i class="ti ti-eye"></i>
+        <p><strong>Clean your lens</strong> before you start — a wipe makes a real difference</p>
+      </div>
+      <div class="reminder-card">
+        <i class="ti ti-sun"></i>
+        <p><strong>Light on the face,</strong> not behind it — avoid bright windows behind subjects</p>
+      </div>
+      <div class="reminder-card">
+        <i class="ti ti-user-check"></i>
+        <p><strong>Get permission</strong> before filming individuals, especially children</p>
+      </div>
+      <div class="reminder-card">
+        <i class="ti ti-zoom-cancel"></i>
+        <p><strong>Don't pinch to zoom</strong> — move closer or tap the lens button</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORE INFORMATION -->
+  <div class="section">
+    <div class="section-header">
+      <i class="ti ti-video"></i>
+      <h2>More information</h2>
+    </div>
+    <p style="font-size:14px;color:var(--text2);line-height:1.5;margin-bottom:1rem;">These videos go into more depth on smartphone photography and video for churches. Some of the technical detail is beyond what you need — but they're great for going deeper.</p>
+    <a class="link-card" href="https://www.youtube.com/watch?v=KaUPT9o4Lus" target="_blank" rel="noopener">
+      <div class="link-thumb"><i class="ti ti-brand-youtube"></i></div>
+      <div class="link-info">
+        <div class="link-title">Church Smartphone Photography Masterclass</div>
+        <div class="link-url">youtube.com/watch?v=KaUPT9o4Lus</div>
+      </div>
+      <i class="ti ti-external-link link-arrow"></i>
+    </a>
+    <a class="link-card" href="https://www.youtube.com/watch?v=6OWGVAuYSEk" target="_blank" rel="noopener">
+      <div class="link-thumb"><i class="ti ti-brand-youtube"></i></div>
+      <div class="link-info">
+        <div class="link-title">Church iPhone Filmmaking Masterclass</div>
+        <div class="link-url">youtube.com/watch?v=6OWGVAuYSEk</div>
+      </div>
+      <i class="ti ti-external-link link-arrow"></i>
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
